@@ -1,0 +1,94 @@
+---
+# The bare domain name which represents your Matrix identity.
+# Matrix user ids for your server will be of the form (`@user:<matrix-domain>`).
+
+matrix_domain: kroboth-home.at
+
+# The Matrix homeserver software to install.
+matrix_homeserver_implementation: synapse
+
+# A secret used as a base, for generating various other secrets.
+matrix_homeserver_generic_secret_key: '{{ vault_matrix_homeserver_generic_secret_key }}'
+matrix_registration_enabled: true
+
+matrix_registration_admin_secret: "{{ vault_matrix_registration_admin_secret }}"
+
+matrix_ssl_lets_encrypt_support_email: 'maximilian@kroboth-home.at'
+
+# A Postgres password to use for the superuser Postgres user (called `matrix` by default).
+#
+# The playbook creates additional Postgres users and databases (one for each enabled service)
+# using this superuser account.
+matrix_postgres_connection_password: '{{ vault_matrix_postgres_connection_password }}'
+
+matrix_jitsi_enabled: true
+matrix_jitsi_jicofo_auth_password: "{{ vault_matrix_jitsi_jicofo_auth_password }}"
+matrix_jitsi_jvb_auth_password: "{{ vault_matrix_jitsi_jvb_auth_password }}"
+matrix_jitsi_jibri_recorder_password: "{{ vault_matrix_jitsi_jibri_recorder_password }}"
+matrix_jitsi_jibri_xmpp_password: "{{ vault_matrix_jitsi_jibri_xmpp_password }}"
+matrix_jitsi_jvb_container_extra_arguments:
+  - '--env "DOCKER_HOST_ADDRESS=195.230.169.92"'
+
+# S3
+
+matrix_s3_media_store_enabled: false
+matrix_s3_media_store_bucket_name: "matrix-data"
+matrix_s3_media_store_aws_access_key: "{{ vault_matrix_s3_media_store_aws_access_key }}"
+matrix_s3_media_store_aws_secret_key: "{{ vault_matrix_s3_media_store_aws_secret_key }}"
+matrix_s3_media_store_custom_endpoint_enabled: true
+matrix_s3_media_store_custom_endpoint: "http://192.168.0.211:9000"
+matrix_synapse_max_upload_size_mb: 10
+# Synapse Admin
+matrix_synapse_admin_enabled: true
+
+# Federation
+
+matrix_nginx_proxy_base_domain_serving_enabled: true
+
+# Dimension
+matrix_dimension_enabled: true
+matrix_dimension_admins:
+  - "@admin:kroboth-home.at"
+  - "@mkr:kroboth-home.at"
+matrix_dimension_access_token: '{{ vault_matrix_dimension_access_token }}'
+
+# Shared Secret Auth
+
+matrix_synapse_ext_password_provider_shared_secret_auth_enabled: true
+matrix_synapse_ext_password_provider_shared_secret_auth_shared_secret: '{{ vault_matrix_synapse_ext_password_provider_shared_secret_auth_shared_secret }}'
+
+# Stats
+
+matrix_prometheus_enabled: true
+
+matrix_prometheus_node_exporter_enabled: true
+
+matrix_grafana_enabled: true
+
+matrix_grafana_anonymous_access: false
+matrix_grafana_default_admin_user: "admin"
+matrix_grafana_default_admin_password: "{{ vault_matrix_grafana_default_admin_password }}"
+
+
+# Bridges
+
+## Telegram
+
+matrix_mautrix_telegram_enabled: true
+matrix_mautrix_telegram_api_id: 17560044
+matrix_mautrix_telegram_api_hash: '{{ vault_matrix_mautrix_telegram_api_hash }}'
+
+## Whatsapp
+
+matrix_mautrix_whatsapp_enabled: true
+
+## Signal
+
+matrix_mautrix_signal_enabled: true
+
+## Steam
+
+matrix_mx_puppet_steam_enabled: true
+
+
+
