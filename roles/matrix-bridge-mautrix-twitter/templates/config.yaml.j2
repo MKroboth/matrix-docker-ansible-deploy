@@ -54,12 +54,6 @@ appservice:
     bot_displayname: Twitter bridge bot
     bot_avatar: mxc://maunium.net/HVHcnusJkQcpVcsVGZRELLCn
 
-    # Community ID for bridged users (changes registration file) and rooms.
-    # Must be created manually.
-    #
-    # Example: "+twitter:example.com". Set to false to disable.
-    community_id: false
-
     # Whether or not to receive ephemeral events via appservice transactions.
     # Requires MSC2409 support (i.e. Synapse 1.22+).
     # You should disable bridge -> sync_with_custom_puppets when this is enabled.
@@ -111,7 +105,7 @@ bridge:
     login_shared_secret_map: {{ matrix_mautrix_twitter_bridge_login_shared_secret_map|to_json }}
     # Whether or not created rooms should have federation enabled.
     # If false, created portal rooms will never be federated.
-    federate_rooms: true
+    federate_rooms: {{ matrix_mautrix_twitter_federate_rooms|to_json }}
     # Settings for backfilling messages from Twitter.
     #
     # Missed message backfilling is currently based on receiving them from the Twitter polling API,
@@ -155,7 +149,7 @@ bridge:
     # been sent to Twitter.
     delivery_receipts: false
     # Whether or not delivery errors should be reported as messages in the Matrix room.
-    delivery_error_reports: false
+    delivery_error_reports: true
     # Whether or not non-fatal polling errors should send notices to the notice room.
     temporary_disconnect_notices: true
     # Number of seconds to sleep more than the previous error when a polling error occurs.
@@ -169,7 +163,7 @@ bridge:
     resend_bridge_info: false
 
     # The prefix for commands. Only required in non-management rooms.
-    command_prefix: "!tw"
+    command_prefix: "{{ matrix_mautrix_twitter_command_prefix }}"
 
     # Permissions for using the bridge.
     # Permitted values:
@@ -179,8 +173,7 @@ bridge:
     #        * - All Matrix users
     #   domain - All users on that homeserver
     #     mxid - Specific user
-    permissions:
-      '{{ matrix_mautrix_twitter_homeserver_domain }}': user
+    permissions: {{ matrix_mautrix_twitter_bridge_permissions|to_json }}
 
 
 # Python logging configuration.
@@ -201,9 +194,9 @@ logging:
             formatter: colored
     loggers:
         mau:
-            level: DEBUG
+            level: {{ matrix_mautrix_twitter_logging_level|to_json }}
         aiohttp:
-            level: INFO
+            level: {{ matrix_mautrix_twitter_logging_level|to_json }}
     root:
-        level: DEBUG
+        level: {{ matrix_mautrix_twitter_logging_level|to_json }}
         handlers: [console]

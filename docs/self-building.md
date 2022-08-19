@@ -22,6 +22,7 @@ List of roles where self-building the Docker image is currently possible:
 - `matrix-dimension`
 - `matrix-ma1sd`
 - `matrix-mailer`
+- `matrix-bridge-hookshot`
 - `matrix-bridge-appservice-irc`
 - `matrix-bridge-appservice-slack`
 - `matrix-bridge-appservice-webhooks`
@@ -32,10 +33,11 @@ List of roles where self-building the Docker image is currently possible:
 - `matrix-bridge-mautrix-telegram`
 - `matrix-bridge-mautrix-signal`
 - `matrix-bridge-mautrix-whatsapp`
-- `matrix-bridge-mx-puppet-skype`
+- `matrix-bridge-mx-puppet-steam`
 - `matrix-bot-mjolnir`
 - `matrix-bot-honoroit`
 - `matrix-bot-matrix-reminder-bot`
+- `matrix-bot-maubot`
 - `matrix-email2matrix`
 
 Adding self-building support to other roles is welcome. Feel free to contribute!
