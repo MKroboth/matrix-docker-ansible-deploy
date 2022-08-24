@@ -37,7 +37,7 @@ matrix_s3_media_store_aws_access_key: "{{ vault_matrix_s3_media_store_aws_access
 matrix_s3_media_store_aws_secret_key: "{{ vault_matrix_s3_media_store_aws_secret_key }}"
 matrix_s3_media_store_custom_endpoint_enabled: true
 matrix_s3_media_store_custom_endpoint: "http://192.168.0.211:9000"
-matrix_synapse_max_upload_size_mb: 10
+matrix_synapse_max_upload_size_mb: 200
 # Synapse Admin
 matrix_synapse_admin_enabled: true
 
