@@ -34,13 +34,20 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 
 - [Setting up the Jitsi video-conferencing platform](configuring-playbook-jitsi.md) (optional)
 
+- [Setting up Etherpad](configuring-playbook-etherpad.md) (optional)
+
 - [Setting up Dynamic DNS](configuring-playbook-dynamic-dns.md) (optional)
 
 - [Enabling metrics and graphs (Prometheus, Grafana) for your Matrix server](configuring-playbook-prometheus-grafana.md) (optional)
 
 ### Core service adjustments
 
-- [Configuring Synapse](configuring-playbook-synapse.md) (optional)
+- Homeserver configuration:
+  - [Configuring Synapse](configuring-playbook-synapse.md), if you're going with the default/recommended homeserver implementation (optional)
+
+  - [Configuring Conduit](configuring-playbook-conduit.md), if you've switched to the [Conduit](https://conduit.rs) homeserver implementation (optional)
+
+  - [Configuring Dendrite](configuring-playbook-dendrite.md), if you've switched to the [Dendrite](https://matrix-org.github.io/dendrite) homeserver implementation (optional)
 
 - [Configuring Element](configuring-playbook-client-element.md) (optional)
 
@@ -86,6 +93,8 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 
 - [Setting up the LDAP password provider module](configuring-playbook-ldap-auth.md) (optional, advanced)
 
+- [Setting up the ldap-registration-proxy](configuring-playbook-matrix-ldap-registration-proxy.md) (optional, advanced)
+
 - [Setting up Synapse Simple Antispam](configuring-playbook-synapse-simple-antispam.md) (optional, advanced)
 
 - [Setting up Matrix Corporal](configuring-playbook-matrix-corporal.md) (optional, advanced)
@@ -96,6 +105,8 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 - [Setting up Mautrix Discord bridging](configuring-playbook-bridge-mautrix-discord.md) (optional)
 
 - [Setting up Mautrix Telegram bridging](configuring-playbook-bridge-mautrix-telegram.md) (optional)
+
+- [Setting up Mautrix Slack bridging](configuring-playbook-bridge-mautrix-slack.md) (optional)
 
 - [Setting up Mautrix Whatsapp bridging](configuring-playbook-bridge-mautrix-whatsapp.md) (optional)
 
@@ -143,12 +154,16 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 
 - [Setting up Email2Matrix](configuring-playbook-email2matrix.md) (optional)
 
+- [Setting up Postmoogle email bridging](configuring-playbook-bot-postmoogle.md) (optional)
+
 - [Setting up Matrix SMS bridging](configuring-playbook-bridge-matrix-bridge-sms.md) (optional)
 
 - [Setting up Heisenbridge bouncer-style IRC bridging](configuring-playbook-bridge-heisenbridge.md) (optional)
 
 
 ### Bots
+
+- [Setting up matrix-bot-chatgpt](configuring-playbook-bot-chatgpt.md) - a bot through which you can talk to the [ChatGPT](https://openai.com/blog/chatgpt/) model(optional)
 
 - [Setting up matrix-reminder-bot](configuring-playbook-bot-matrix-reminder-bot.md) - a bot to remind you about stuff (optional)
 
@@ -177,3 +192,5 @@ When you're done with all the configuration you'd like to do, continue with [Ins
 - [Setting up the Sygnal push gateway](configuring-playbook-sygnal.md) (optional)
 
 - [Setting up the ntfy push notifications server](configuring-playbook-ntfy.md) (optional)
+
+- [Setting up a Cactus Comments server](configuring-playbook-cactus-comments.md) - a federated comment system built on Matrix (optional)
