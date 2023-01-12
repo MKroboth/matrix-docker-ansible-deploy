@@ -19,7 +19,7 @@ matrix_ssl_lets_encrypt_support_email: 'maximilian@kroboth-home.at'
 #
 # The playbook creates additional Postgres users and databases (one for each enabled service)
 # using this superuser account.
-matrix_postgres_connection_password: '{{ vault_matrix_postgres_connection_password }}'
+devture_postgres_connection_password: '{{ vault_matrix_postgres_connection_password }}'
 
 matrix_jitsi_enabled: true
 matrix_jitsi_jicofo_auth_password: "{{ vault_matrix_jitsi_jicofo_auth_password }}"
